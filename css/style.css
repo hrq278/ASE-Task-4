@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary-color: #134074;
+  --primary-glow: rgba(19, 64, 116, 0.35);
+  --secondary-color: #13315C;
+  --dark-color: #0B2545;
+  --light-accent: #8DA9C4;
+  --light-accent-glow: rgba(141, 169, 196, 0.2);
+  
+  --bg-color-light: #F4F7FA;
+  --card-bg-light: #FFFFFF;
+  --text-color-light: #0B2545;
+  --text-muted-light: #526E8D;
+  --border-color-light: rgba(141, 169, 196, 0.3);
+  
+  --bg-color-dark: #07162C;
+  --card-bg-dark: #0B2545;
+  --text-color-dark: #EEF4F8;
+  --text-muted-dark: #8DA9C4;
+  --border-color-dark: rgba(141, 169, 196, 0.15);
+  
+  /* Active values - defaults to light, toggled via JavaScript */
+  --bg-color: var(--bg-color-light);
+  --card-bg: var(--card-bg-light);
+  --text-color: var(--text-color-light);
+  --text-muted: var(--text-muted-light);
+  --border-color: var(--border-color-light);
+  
+  /* States & Badges */
+  --danger-color: #E63946;
+  --danger-glow: rgba(230, 57, 70, 0.2);
+  --warning-color: #F4A261;
+  --warning-glow: rgba(244, 162, 97, 0.2);
+  --success-color: #2A9D8F;
+  --success-glow: rgba(42, 157, 143, 0.2);
+  --info-color: #457B9D;
+  --info-glow: rgba(69, 123, 157, 0.2);
+  
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  --shadow-sm: 0 2px 4px rgba(7, 22, 44, 0.04);
+  --shadow-md: 0 4px 12px rgba(7, 22, 44, 0.06), 0 1px 3px rgba(7, 22, 44, 0.05);
+  --shadow-lg: 0 12px 24px rgba(7, 22, 44, 0.08), 0 4px 8px rgba(7, 22, 44, 0.04);
+  --shadow-xl: 0 24px 38px rgba(7, 22, 44, 0.12), 0 8px 16px rgba(7, 22, 44, 0.06);
+  --shadow-glow: 0 0 15px var(--light-accent-glow);
+  
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+[data-theme="dark"] {
+  --bg-color: var(--bg-color-dark);
+  --card-bg: var(--card-bg-dark);
+  --text-color: var(--text-color-dark);
+  --text-muted: var(--text-muted-dark);
+  --border-color: var(--border-color-dark);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 24px 38px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(141, 169, 196, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--light-accent);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: var(--font-body);
+}
+
+/* Common utility classes */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-danger { color: var(--danger-color); }
+.text-success { color: var(--success-color); }
+.text-warning { color: var(--warning-color); }
+.text-info { color: var(--info-color); }
+.text-muted { color: var(--text-muted); }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--light-accent);
+  border-radius: var(--radius-sm);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Theme Switcher Button */
+.theme-toggle-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  z-index: 1000;
+}
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-glow);
+  border-color: var(--light-accent);
+}
+.theme-toggle-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
