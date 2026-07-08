@@ -352,3 +352,4 @@ document.addEventListener('DOMContentLoaded', () => {
   // Trigger initial statistical dashboard update
   updateDashboardData();
 });
+const b= 2;

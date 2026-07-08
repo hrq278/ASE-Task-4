@@ -420,3 +420,4 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize display
   renderTasks();
 });
+const c = 1
