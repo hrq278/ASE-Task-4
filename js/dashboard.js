@@ -146,8 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const overdueTasks = tasks.filter(t => {
       if (t.status === 'Completed') return false;
-      const dueDate = new Date(t.dueDate);
-      dueDate.setHours(0, 0, 0, 0);
+      const dueDate = parseLocalDate(t.dueDate);
       return dueDate < today;
     });
 
@@ -341,6 +340,13 @@ document.addEventListener('DOMContentLoaded', () => {
         '"': '&quot;'
       }[tag] || tag)
     );
+  }
+
+  // Helper to parse date strings without timezone shifts
+  function parseLocalDate(dateStr) {
+    if (!dateStr) return new Date();
+    const [year, month, day] = dateStr.split('-').map(Number);
+    return new Date(year, month - 1, day, 0, 0, 0, 0);
   }
 
   // Trigger initial statistical dashboard update

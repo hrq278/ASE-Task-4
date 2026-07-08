@@ -153,11 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Business logic: Due date cannot be before start date
     if (startDateVal && dueDateVal) {
-      const start = new Date(startDateVal);
-      const due = new Date(dueDateVal);
-      
-      start.setHours(0,0,0,0);
-      due.setHours(0,0,0,0);
+      const start = parseLocalDate(startDateVal);
+      const due = parseLocalDate(dueDateVal);
 
       if (due < start) {
         showFieldError(dueDateInput, dueDateError, 'Due date cannot be before start date.');
@@ -268,8 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     tasksGrid.innerHTML = filteredTasks.map(task => {
       // Overdue check
-      const dueDate = new Date(task.dueDate);
-      dueDate.setHours(0, 0, 0, 0);
+      const dueDate = parseLocalDate(task.dueDate);
       const isOverdue = task.status !== 'Completed' && dueDate < today;
       
       // Business logic: High priority overdue highlight
@@ -412,6 +408,13 @@ document.addEventListener('DOMContentLoaded', () => {
         '"': '&quot;'
       }[tag] || tag)
     );
+  }
+
+  // Helper to parse date strings without timezone shifts
+  function parseLocalDate(dateStr) {
+    if (!dateStr) return new Date();
+    const [year, month, day] = dateStr.split('-').map(Number);
+    return new Date(year, month - 1, day, 0, 0, 0, 0);
   }
 
   // Initialize display
