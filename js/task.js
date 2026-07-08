@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (filteredTasks.length === 0) {
       tasksGrid.innerHTML = `
         <div class="empty-state">
-          <span class="empty-icon">📂</span>
+          <span class="material-icons">folder_open</span>
           <p>No tasks found matching current filters.</p>
           <button class="btn btn-outline" id="btn-empty-reset">Reset Filters</button>
         </div>`;
@@ -284,15 +284,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="task-card-header">
             <span class="project-tag" title="${escapeHTML(task.projectName)}">${escapeHTML(task.projectName)}</span>
             <div class="task-actions">
-              <button class="action-icon-btn btn-edit" data-id="${task.id}" title="Edit Task">✏️</button>
-              <button class="action-icon-btn btn-delete" data-id="${task.id}" title="Delete Task">🗑️</button>
+              <button class="action-icon-btn btn-edit" data-id="${task.id}" title="Edit Task"><span class="material-icons">edit</span></button>
+              <button class="action-icon-btn btn-delete" data-id="${task.id}" title="Delete Task"><span class="material-icons">delete</span></button>
             </div>
           </div>
           
           <h3 class="task-title">${escapeHTML(task.taskTitle)}</h3>
           
           <div class="task-employee">
-            <span class="employee-icon">👤</span>
+            <span class="material-icons">person</span>
             <span>Assigned: <strong>${escapeHTML(task.assignedEmployee)}</strong></span>
           </div>
 
@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="date-row ${isOverdue ? 'overdue' : ''}">
               <span>Due Date:</span>
               <strong>${task.dueDate} ${isOverdue ? '(Overdue)' : ''}</strong>
-              ${isOverdue ? '<span class="calendar-icon">⚠️</span>' : ''}
+              ${isOverdue ? '<span class="material-icons" style="font-size:13px;">event_busy</span>' : ''}
             </div>
           </div>
 

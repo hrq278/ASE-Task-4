@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Project & Task Management System</title>
+  <title>Login - Project &amp; Task Management System</title>
+  <meta name="description" content="Login to ASE ProjectHub — manage internal employee tasks and projects.">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-  <!-- Header / Navigation Bar for Theme Switching -->
+  <!-- Header -->
   <header class="login-header">
     <div class="logo-container">
-      <span class="logo-icon">🚀</span>
+      <img class="logo-img" src="../assets/ASElogo.png" alt="ASE ProjectHub Logo">
       <span class="logo-text">ASE ProjectHub</span>
     </div>
     <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
@@ -28,39 +29,48 @@
     <div class="login-card">
       <div class="card-header">
         <h2>Welcome Back</h2>
-        <p>Login to manage your internal employees' tasks and projects.</p>
+        <p>Sign in to manage your internal employees' tasks and projects.</p>
       </div>
 
       <form id="login-form" novalidate>
         <div id="error-summary" class="error-summary hidden" role="alert"></div>
 
+        <!-- Email -->
         <div class="input-group">
           <label for="email">Email Address</label>
           <div class="input-wrapper">
-            <span class="input-icon">✉️</span>
-            <input type="email" id="email" name="email" placeholder="employee@company.com" required autocomplete="email">
+            <span class="input-icon"><span class="material-icons">mail</span></span>
+            <input type="email" id="email" name="email"
+                   placeholder="employee@company.com" required autocomplete="email">
           </div>
           <span class="field-error" id="email-error"></span>
         </div>
 
+        <!-- Password -->
         <div class="input-group">
           <label for="password">Password</label>
           <div class="input-wrapper">
-            <span class="input-icon">🔒</span>
-            <input type="password" id="password" name="password" placeholder="••••••••" required autocomplete="current-password">
-            <button type="button" id="toggle-password" class="password-toggle-btn" aria-label="Toggle Password Visibility">👁️</button>
+            <span class="input-icon"><span class="material-icons">lock</span></span>
+            <input type="password" id="password" name="password"
+                   placeholder="••••••••" required autocomplete="current-password">
+            <button type="button" id="toggle-password"
+                    class="password-toggle-btn" aria-label="Toggle Password Visibility">
+              <span class="material-icons" id="eye-icon">visibility</span>
+            </button>
           </div>
           <span class="field-error" id="password-error"></span>
         </div>
 
+        <!-- Remember Me -->
         <div class="form-actions">
           <label class="checkbox-container">
             <input type="checkbox" id="remember-me">
             <span class="checkmark"></span>
-            Keep me logged in
+            Keep me signed in
           </label>
         </div>
 
+        <!-- Submit -->
         <button type="submit" class="submit-btn" id="submit-btn">
           <span class="btn-text">Sign In</span>
           <span class="spinner hidden"></span>

@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Project & Task Management System</title>
+  <title>Dashboard - Project &amp; Task Management System</title>
+  <meta name="description" content="ASE ProjectHub — internal project and task management dashboard.">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
   <div class="dashboard-wrapper">
-    <!-- Sidebar Navigation -->
+
+    <!-- ── Sidebar ─────────────────────────────────────────── -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
-        <span class="logo-icon">🚀</span>
+        <img class="logo-img" src="../assets/ASElogo.png" alt="ASE Logo">
         <span class="logo-text">ASE ProjectHub</span>
         <button class="sidebar-close-btn" id="sidebar-close" aria-label="Close Sidebar">&times;</button>
       </div>
 
       <div class="user-profile">
-        <div class="avatar">U</div>
+        <img class="avatar-img" id="profile-img" src="../assets/profile picture.jpeg" alt="Profile Picture">
         <div class="profile-info">
           <span class="user-name" id="display-user-name">Employee</span>
           <span class="user-role">Internal Staff</span>
@@ -29,20 +31,20 @@
         <ul>
           <li>
             <button class="nav-item active" data-tab="overview">
-              <span class="nav-icon">📊</span>
+              <span class="material-icons">dashboard</span>
               <span class="nav-label">Dashboard</span>
             </button>
           </li>
           <li>
             <button class="nav-item" data-tab="tasks">
-              <span class="nav-icon">📋</span>
+              <span class="material-icons">assignment</span>
               <span class="nav-label">Task Manager</span>
             </button>
           </li>
           <li>
             <button class="nav-item" data-tab="reports">
-              <span class="nav-icon">📈</span>
-              <span class="nav-label">Reports & Analytics</span>
+              <span class="material-icons">bar_chart</span>
+              <span class="nav-label">Reports &amp; Analytics</span>
             </button>
           </li>
         </ul>
@@ -58,21 +60,20 @@
           </svg>
           <span class="theme-label">Toggle Theme</span>
         </button>
+
         <button class="logout-btn" id="logout-button">
-          <span class="logout-icon">🚪</span>
+          <span class="material-icons">logout</span>
           <span>Logout</span>
         </button>
       </div>
     </aside>
 
-    <!-- Main Content Area -->
+    <!-- ── Main Content ────────────────────────────────────── -->
     <div class="main-content">
       <header class="main-header">
         <div class="header-left">
           <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Open Menu">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
           </button>
           <h1 id="page-title">Dashboard Overview</h1>
         </div>
@@ -82,36 +83,44 @@
         </div>
       </header>
 
-      <!-- Content Panels -->
       <main class="content-panel-wrapper">
-        
-        <!-- Panel 1: Overview Dashboard -->
+
+        <!-- ── Panel 1: Overview ───────────────────────────── -->
         <section id="tab-overview" class="tab-panel active-panel">
-          <!-- Metrics Cards Grid -->
+
+          <!-- Metric Cards -->
           <div class="metrics-grid">
             <div class="metric-card card-primary">
-              <div class="card-icon-wrapper">📁</div>
+              <div class="card-icon-wrapper">
+                <span class="material-icons">folder</span>
+              </div>
               <div class="metric-info">
                 <h3>Total Projects</h3>
                 <p class="metric-value" id="metric-projects">0</p>
               </div>
             </div>
             <div class="metric-card card-success">
-              <div class="card-icon-wrapper">✅</div>
+              <div class="card-icon-wrapper">
+                <span class="material-icons">check_circle</span>
+              </div>
               <div class="metric-info">
                 <h3>Completed Tasks</h3>
                 <p class="metric-value" id="metric-completed">0</p>
               </div>
             </div>
             <div class="metric-card card-warning">
-              <div class="card-icon-wrapper">⏳</div>
+              <div class="card-icon-wrapper">
+                <span class="material-icons">pending</span>
+              </div>
               <div class="metric-info">
                 <h3>Pending Tasks</h3>
                 <p class="metric-value" id="metric-pending">0</p>
               </div>
             </div>
             <div class="metric-card card-danger">
-              <div class="card-icon-wrapper">⚠️</div>
+              <div class="card-icon-wrapper">
+                <span class="material-icons">warning</span>
+              </div>
               <div class="metric-info">
                 <h3>Overdue Tasks</h3>
                 <p class="metric-value" id="metric-overdue">0</p>
@@ -119,20 +128,21 @@
             </div>
           </div>
 
-          <!-- Quick Action Banner -->
+          <!-- Action Banner -->
           <div class="action-banner">
             <div class="banner-text">
               <h2>Need to assign new work?</h2>
               <p>Add tasks with priority ratings, target due dates, and project associations.</p>
             </div>
             <button class="btn btn-primary open-task-modal-btn">
-              <span>➕</span> Create New Task
+              <span class="material-icons">add</span> Create New Task
             </button>
           </div>
 
-          <!-- Secondary Grid: Charts & Alerts -->
+          <!-- Details Grid -->
           <div class="dashboard-details-grid">
-            <!-- Column 1: Overdue & Critical Tasks Alerts -->
+
+            <!-- Critical Alerts -->
             <div class="details-card overdue-alerts-container">
               <div class="details-card-header">
                 <h2>Critical Task Warnings</h2>
@@ -140,13 +150,13 @@
               </div>
               <div class="alerts-feed" id="critical-tasks-list">
                 <div class="empty-state">
-                  <span class="empty-icon">🎉</span>
+                  <span class="material-icons">celebration</span>
                   <p>No high-priority overdue tasks. Great job!</p>
                 </div>
               </div>
             </div>
 
-            <!-- Column 2: Task Status Summary Chart -->
+            <!-- Donut Chart -->
             <div class="details-card chart-container-card">
               <div class="details-card-header">
                 <h2>Task Status Distribution</h2>
@@ -154,13 +164,11 @@
               <div class="chart-flex-wrapper">
                 <div class="svg-chart-wrapper">
                   <svg class="donut-chart" viewBox="0 0 42 42">
-                    <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="transparent" role="presentation"></circle>
-                    <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke-width="3" role="presentation"></circle>
-                    
-                    <!-- Dynamic segments will go here -->
-                    <circle id="segment-completed" class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke-width="4.5" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+                    <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
+                    <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke-width="3"></circle>
+                    <circle id="segment-completed"  class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke-width="4.5" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
                     <circle id="segment-inprogress" class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke-width="4.5" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
-                    <circle id="segment-pending" class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke-width="4.5" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+                    <circle id="segment-pending"    class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke-width="4.5" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
                   </svg>
                   <div class="chart-center-label">
                     <span id="chart-total-count" class="total-count">0</span>
@@ -186,24 +194,27 @@
                 </div>
               </div>
             </div>
+
           </div>
         </section>
 
-        <!-- Panel 2: Task Manager -->
+        <!-- ── Panel 2: Task Manager ───────────────────────── -->
         <section id="tab-tasks" class="tab-panel">
-          <!-- Filters & Controls Bar -->
+
+          <!-- Filters Bar -->
           <div class="filters-card">
             <div class="filters-grid">
               <div class="filter-group search-group">
                 <label for="search-employee">Search Employee</label>
                 <div class="search-input-wrapper">
-                  <span class="search-icon">🔍</span>
-                  <input type="text" id="search-employee" placeholder="Search tasks by employee name...">
+                  <span class="material-icons">search</span>
+                  <input type="text" id="search-employee"
+                         placeholder="Search tasks by employee name...">
                 </div>
               </div>
 
               <div class="filter-group">
-                <label for="filter-priority">Filter Priority</label>
+                <label for="filter-priority">Priority</label>
                 <select id="filter-priority">
                   <option value="all">All Priorities</option>
                   <option value="Low">Low</option>
@@ -213,7 +224,7 @@
               </div>
 
               <div class="filter-group">
-                <label for="filter-status">Filter Status</label>
+                <label for="filter-status">Status</label>
                 <select id="filter-status">
                   <option value="all">All Statuses</option>
                   <option value="Pending">Pending</option>
@@ -223,39 +234,41 @@
               </div>
 
               <div class="filter-actions">
-                <button class="btn btn-outline" id="btn-clear-filters">Reset Filters</button>
-                <button class="btn btn-primary open-task-modal-btn">➕ New Task</button>
+                <button class="btn btn-outline" id="btn-clear-filters">Reset</button>
+                <button class="btn btn-primary open-task-modal-btn">
+                  <span class="material-icons">add</span> New Task
+                </button>
               </div>
             </div>
           </div>
 
-          <!-- Tasks Display Container -->
+          <!-- Tasks Grid -->
           <div class="tasks-container" id="tasks-grid">
-            <!-- Cards will be populated dynamically -->
             <div class="empty-state">
-              <span class="empty-icon">📁</span>
+              <span class="material-icons">folder_open</span>
               <p>No tasks found matching criteria.</p>
               <button class="btn btn-primary open-task-modal-btn">Create First Task</button>
             </div>
           </div>
         </section>
 
-        <!-- Panel 3: Reports & Analytics -->
+        <!-- ── Panel 3: Reports ────────────────────────────── -->
         <section id="tab-reports" class="tab-panel">
           <div class="reports-header-actions">
             <h2>System Report</h2>
             <div class="report-buttons">
               <button class="btn btn-outline" id="btn-export-json">
-                <span>📥</span> Export Tasks (JSON)
+                <span class="material-icons">download</span> Export JSON
               </button>
               <button class="btn btn-secondary" id="btn-print-report">
-                <span>🖨️</span> Print Summary
+                <span class="material-icons">print</span> Print Summary
               </button>
             </div>
           </div>
 
           <div class="reports-grid">
-            <!-- Summary Stats Table Card -->
+
+            <!-- Summary Table -->
             <div class="details-card report-card">
               <h2>Task Summary Overview</h2>
               <table class="report-table">
@@ -270,7 +283,7 @@
                   <tr>
                     <td>Total Configured Projects</td>
                     <td id="report-projects-count" class="font-bold">0</td>
-                    <td>-</td>
+                    <td>—</td>
                   </tr>
                   <tr>
                     <td>Total Created Tasks</td>
@@ -301,18 +314,18 @@
               </table>
             </div>
 
-            <!-- Project Progress Breakdown Card -->
+            <!-- Project Progress -->
             <div class="details-card report-card">
-              <h2>Project Progress Percentage</h2>
-              <p class="card-subtitle text-muted">Calculated as (Completed Tasks / Total Tasks) per project</p>
+              <h2>Project Progress</h2>
+              <p class="card-subtitle text-muted">Completed / Total Tasks per project</p>
               <div class="project-progress-list" id="project-progress-container">
-                <!-- Project progress bars loaded dynamically -->
                 <div class="empty-state">
-                  <span class="empty-icon">📁</span>
-                  <p>No project data available. Create tasks to view project progress.</p>
+                  <span class="material-icons">folder_open</span>
+                  <p>No project data. Create tasks to view progress.</p>
                 </div>
               </div>
             </div>
+
           </div>
         </section>
 
@@ -320,23 +333,23 @@
     </div>
   </div>
 
-  <!-- CREATE / EDIT TASK MODAL -->
+  <!-- ── CREATE / EDIT TASK MODAL ───────────────────────────── -->
   <div class="modal-overlay" id="task-modal">
     <div class="modal-card">
       <div class="modal-header">
         <h2 id="modal-title">Create New Task</h2>
-        <button class="modal-close-btn" id="modal-close" aria-label="Close Form">&times;</button>
+        <button class="modal-close-btn" id="modal-close" aria-label="Close">&times;</button>
       </div>
 
       <form id="task-form" novalidate>
         <input type="hidden" id="task-id" name="taskId">
-        
         <div id="task-error-summary" class="error-summary hidden" role="alert"></div>
 
         <div class="form-row">
           <div class="input-group">
             <label for="task-title">Task Title</label>
-            <input type="text" id="task-title" name="taskTitle" placeholder="e.g. Design API architecture" required>
+            <input type="text" id="task-title" name="taskTitle"
+                   placeholder="e.g. Design API architecture" required>
             <span class="field-error" id="title-error"></span>
           </div>
         </div>
@@ -344,10 +357,9 @@
         <div class="form-row">
           <div class="input-group">
             <label for="project-name">Project Name</label>
-            <input type="text" id="project-name" name="projectName" placeholder="e.g. ASE Enterprise Portal" required list="project-suggestions">
-            <datalist id="project-suggestions">
-              <!-- Dynamically populated suggestions -->
-            </datalist>
+            <input type="text" id="project-name" name="projectName"
+                   placeholder="e.g. ASE Enterprise Portal" required list="project-suggestions">
+            <datalist id="project-suggestions"></datalist>
             <span class="field-error" id="project-error"></span>
           </div>
         </div>
@@ -355,10 +367,10 @@
         <div class="form-row-2">
           <div class="input-group">
             <label for="assigned-employee">Assigned Employee</label>
-            <input type="text" id="assigned-employee" name="assignedEmployee" placeholder="Full name" required>
+            <input type="text" id="assigned-employee" name="assignedEmployee"
+                   placeholder="Full name" required>
             <span class="field-error" id="employee-error"></span>
           </div>
-          
           <div class="input-group">
             <label for="task-priority">Priority Level</label>
             <select id="task-priority" name="priority" required>
@@ -377,7 +389,6 @@
             <input type="date" id="start-date" name="startDate" required>
             <span class="field-error" id="start-date-error"></span>
           </div>
-
           <div class="input-group">
             <label for="due-date">Due Date</label>
             <input type="date" id="due-date" name="dueDate" required>
@@ -399,7 +410,9 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-outline" id="btn-cancel-task">Cancel</button>
-          <button type="submit" class="btn btn-primary" id="btn-save-task">Save Task</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-task">
+            <span class="material-icons">save</span> Save Task
+          </button>
         </div>
       </form>
     </div>

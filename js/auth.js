@@ -36,7 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
   togglePasswordBtn.addEventListener('click', () => {
     const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
     passwordInput.setAttribute('type', type);
-    togglePasswordBtn.textContent = type === 'password' ? '👁️' : '🔒';
+    const eyeIcon = document.getElementById('eye-icon');
+    if (eyeIcon) {
+      eyeIcon.textContent = type === 'password' ? 'visibility' : 'visibility_off';
+    }
   });
 
   // Login Form Validation & Action

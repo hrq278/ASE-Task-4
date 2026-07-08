@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alertCountEl.className = 'badge badge-success';
       alertsFeed.innerHTML = `
         <div class="empty-state">
-          <span class="empty-icon">🎉</span>
+          <span class="material-icons">task_alt</span>
           <p>No high-priority overdue tasks. Great job!</p>
         </div>`;
       return;
@@ -191,12 +191,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const daysOverdue = Math.ceil((new Date() - new Date(task.dueDate)) / (1000 * 60 * 60 * 24));
       return `
         <div class="alert-item">
-          <span class="alert-icon">🚨</span>
+          <span class="material-icons">report</span>
           <div class="alert-content">
             <h4>${escapeHTML(task.taskTitle)}</h4>
             <p>Project: <strong>${escapeHTML(task.projectName)}</strong> | Assigned: <strong>${escapeHTML(task.assignedEmployee)}</strong></p>
             <div class="alert-meta">
-              <span class="text-danger font-bold">${daysOverdue} days overdue</span>
+              <span class="text-danger font-bold">${daysOverdue} day(s) overdue</span>
               <span class="text-muted">Due: ${task.dueDate}</span>
             </div>
           </div>
@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (projects.length === 0) {
       progressContainer.innerHTML = `
         <div class="empty-state">
-          <span class="empty-icon">📁</span>
+          <span class="material-icons">folder_open</span>
           <p>No project data available. Create tasks to view project progress.</p>
         </div>`;
       return;
