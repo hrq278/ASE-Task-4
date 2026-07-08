@@ -2,15 +2,35 @@
 
 An advanced web application prototype built for Allied Software Engineers internal employees to manage tasks and project resources. This application showcases professional front-end engineering, robust validation engines, persistent states, and a structured DevOps branch release pipeline.
 
-## 🚀 Live Demo URL
+## Live Demo URL
 The application is deployed on GitHub Pages at:
 **[https://hrq278.github.io/project-task-management/](https://hrq278.github.io/project-task-management/)**
 
-*(Note: If your GitHub username differs from `hrq278`, the URL will adjust to `https://<your-username>.github.io/project-task-management/`)*
 
 ---
+##  Dashboard Screenshots
 
-## 📂 Folder Structure
+### Login
+
+![Dashboard Screenshot](./screenshots/ScreenShot4.png)
+
+### Dashboard
+![Dashboard Screenshot](./screenshots/ScreenShot2.png)
+
+### Tasks Grid
+
+![Dashboard Screenshot](./screenshots/ScreenShot3.png)
+
+### Reports
+
+![Dashboard Screenshot](./screenshots/ScreenShot1.png)
+
+### Dark Mode
+
+![Dashboard Screenshot](./screenshots/ScreenShot5.png)
+
+
+##  Folder Structure
 The repository is structured following industry-standard DevOps layout:
 ```text
 project-task-management/
@@ -37,7 +57,7 @@ project-task-management/
 
 ---
 
-## 🛠️ Tech Stack & Features
+##  Tech Stack & Features
 1. **Core Architecture**: Pure HTML5 (Semantic Structure) & JavaScript ES6.
 2. **Styling System**: CSS3 Custom Properties (Variables) with responsive Flexbox/Grid systems.
 3. **Persistency**: Syncs with HTML5 Web Local Storage API.
@@ -48,7 +68,7 @@ project-task-management/
 
 ---
 
-## 💻 Local Setup & Execution
+##  Local Setup & Execution
 No heavy runtime or database setups are required. You can run the application directly inside any web browser.
 
 ### Option A: Local Browser Launch
@@ -60,7 +80,6 @@ No heavy runtime or database setups are required. You can run the application di
 If using VS Code:
 1. Install the "Live Server" extension.
 2. Right-click `pages/login.html` and select **Open with Live Server**.
-3. This serves the files on `http://127.0.5.1:5500/pages/login.html` preventing path issues.
 
 ### Pre-filled Demo Credentials
 To expedite testing, the login fields are pre-filled:
@@ -69,7 +88,7 @@ To expedite testing, the login fields are pre-filled:
 
 ---
 
-## 🌳 Git Release Pipeline
+##  Git Release Pipeline
 We maintain a strict branching standard:
 - `main`: Production-ready code (V1.0 releases).
 - `development`: Primary integration branch.
@@ -81,5 +100,3 @@ We maintain a strict branching standard:
 
 ---
 
-## 📝 Testing Suite
-Comprehensive testing guidelines are written in [tests/test-cases.md](file:///d:/MERN/ASE%20Task_4/project-task-management/tests/test-cases.md). Please refer to it for test instructions.
